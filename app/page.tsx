@@ -1,9 +1,10 @@
 "use client";
 import { FooterComponent } from "@/components/FooterComponent";
 import NavbarComponent from "@/components/NavbarComponent";
-import { HomePage } from "@/components/ui/HomePage";
+import { HomePage } from "@/components/HomePage";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { AboutPage } from "@/components/AboutPage";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -18,6 +19,7 @@ export default function Home() {
       <AnimatePresence mode="wait">
         <motion.div>
           {currentPage === "home" && <HomePage onNavigate={handleNavigate} />}
+          {currentPage === "about" && <AboutPage />}
         </motion.div>
         </AnimatePresence>
       <FooterComponent onNavigate={handleNavigate} />
