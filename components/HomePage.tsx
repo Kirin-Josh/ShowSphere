@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, Calendar, Star, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { upcomingEvents } from "@/lib/data";
 import Image from "next/image";
 
 interface HomePageProps {
@@ -14,29 +15,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
     { icon: Users, value: "10K+", label: "Happy Clients" },
   ];
 
-  const upcomingEvents = [
-    {
-      date: "Nov 20",
-      title: "Jazz Night at Blue Note",
-      venue: "Blue Note Jazz Club, NYC",
-      image:
-        "/hero-image2.jpeg",
-    },
-    {
-      date: "Nov 28",
-      title: "Corporate Gala Performance",
-      venue: "Grand Ballroom, Manhattan",
-      image:
-        "/hero-image3.jpeg",
-    },
-    {
-      date: "Dec 5",
-      title: "Holiday Concert Series",
-      venue: "Symphony Hall, Boston",
-      image:
-        "/hero-image4.jpeg",
-    },
-  ];
 
   return (
     <div className="min-h-screen">

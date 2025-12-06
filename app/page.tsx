@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { AboutPage } from "@/components/AboutPage";
 import { GalleryPage } from "@/components/GalleryComponent";
+import EventsPage from "@/components/EventsComponent";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -22,6 +23,7 @@ export default function Home() {
           {currentPage === "home" && <HomePage onNavigate={handleNavigate} />}
           {currentPage === "about" && <AboutPage />}
           {currentPage === "gallery" && <GalleryPage />}
+          {currentPage === "events" && <EventsPage />}
         </motion.div>
         </AnimatePresence>
       <FooterComponent onNavigate={handleNavigate} />
