@@ -70,7 +70,7 @@ export function GalleryPage() {
 
         {/* SHIMMER LOADER */}
         {!loaded && (
-          <div className="absolute inset-0 bg-black/60 animate-pulse" />
+          <div className="absolute inset-0 bg-black/50 animate-pulse" />
         )}
 
         {/* MOBILE FALLBACK IMAGE */}
