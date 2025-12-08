@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Volume2, VolumeX } from "lucide-react";
-import { galleryItems } from "@/lib/data";
-import { categories } from "@/lib/data";
+import { galleryItems, categories } from "@/lib/data";
 
 import Image from "next/image";
 
