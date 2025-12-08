@@ -52,7 +52,13 @@ function NavbarComponent({ currentpage, onNavigate }: NavigationProps) {
               className="cursor-pointer px-4"
               onClick={() => onNavigate("home")}
             >
-              <Image src="/sax-logo.jpg" alt="Logo" width={70} height={70} className="rounded-full" />
+              <Image
+                src="/sax-logo.jpg"
+                alt="Logo"
+                width={70}
+                height={70}
+                className="rounded-full"
+              />
             </motion.div>
 
             {/* Desktop Nav */}

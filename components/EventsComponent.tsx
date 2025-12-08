@@ -7,16 +7,32 @@ import Image from "next/image";
 import { Calendar, MapPin, Play } from "lucide-react";
 import { events, eventCategories } from "@/lib/data";
 
-export default function EventsPage() {
+interface EventsPageProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function EventsPage({ onNavigate }: EventsPageProps) {
   const [filter, setFilter] = useState<
     "all" | "upcoming" | "past" | "featured"
   >("all");
-
 
   const filteredEvents =
     filter === "all"
       ? events
       : events.filter((event) => event.category === filter);
+
+  const handleEventClick = (link: string) => {
+    // Check if it's an external link (starts with http)
+    if (link.startsWith("http")) {
+      window.open(link, "_blank");
+    } else {
+      // Remove leading slash and use internal navigation
+      const page = link.startsWith("/") ? link.slice(1) : link;
+      if (onNavigate) {
+        onNavigate(page);
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -26,7 +42,7 @@ export default function EventsPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl text-white font-bold mb-4"
+            className="text-4xl md:text-6xl text-white font-bold mb-4 mt-10"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             NeySax <span className="text-[#6C63FF]">Events</span>
@@ -102,15 +118,14 @@ export default function EventsPage() {
                 </p>
 
                 {event.link && (
-                  <motion.a
+                  <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href={event.link}
-                    target="_blank"
+                    onClick={() => handleEventClick(event.link!)}
                     className="mt-4 inline-block px-6 py-2 bg-[#6C63FF] text-white rounded-full font-medium hover:bg-[#5449E0] transition-all"
                   >
                     {event.type === "video" ? "Watch Video" : "Book Now"}
-                  </motion.a>
+                  </motion.button>
                 )}
               </div>
             </motion.div>

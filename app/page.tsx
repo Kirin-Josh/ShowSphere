@@ -10,10 +10,10 @@ import EventsPage from "@/components/EventsComponent";
 import { ContactPage } from "@/components/ContactComponent";
 
 export default function Home() {
+  // Initialize page from URL hash
   const [currentPage, setCurrentPage] = useState(() => {
-    // Initialize page from URL on mount
     if (typeof window !== "undefined") {
-      return window.location.pathname.slice(1) || "home";
+      return window.location.hash.slice(1) || "home";
     }
     return "home";
   });
@@ -24,21 +24,21 @@ export default function Home() {
 
     setCurrentPage(cleanPage);
 
-    // Update URL without page reload
-    window.history.pushState({}, "", `/${cleanPage}`);
+    // Update URL hash without page reload
+    window.location.hash = cleanPage;
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Handle browser back/forward buttons
+  // Handle browser back/forward buttons and hash changes
   useEffect(() => {
-    const handlePopState = () => {
-      const path = window.location.pathname.slice(1) || "home";
-      setCurrentPage(path);
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1) || "home";
+      setCurrentPage(hash);
     };
 
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return (
@@ -55,7 +55,9 @@ export default function Home() {
           {currentPage === "home" && <HomePage onNavigate={handleNavigate} />}
           {currentPage === "about" && <AboutPage />}
           {currentPage === "gallery" && <GalleryPage />}
-          {currentPage === "events" && <EventsPage />}
+          {currentPage === "events" && (
+            <EventsPage onNavigate={handleNavigate} />
+          )}
           {currentPage === "contact" && <ContactPage />}
           {currentPage === "booking" && <ContactPage />}
         </motion.div>
