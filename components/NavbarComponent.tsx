@@ -25,7 +25,6 @@ function NavbarComponent({ currentpage, onNavigate }: NavigationProps) {
     { name: "About", id: "about" },
     { name: "Gallery", id: "gallery" },
     { name: "Events", id: "events" },
-    { name: "Services", id: "services" },
     { name: "Contact", id: "contact" },
   ];
 

@@ -77,7 +77,7 @@ export const events: Event[] = [
       image: "/hero-image2.jpeg",
       type: "image",
       category: "upcoming",
-      link: "#book",
+      link: "/contact",
     },
     {
       id: 2,
@@ -87,7 +87,7 @@ export const events: Event[] = [
       image: "/hero-image3.jpeg",
       type: "image",
       category: "upcoming",
-      link: "#book",
+      link: "/contact",
     },
     {
       id: 3,
@@ -107,7 +107,7 @@ export const events: Event[] = [
       image: "/hero-image5.jpeg",
       type: "image",
       category: "featured",
-      link: "#book",
+      link: "/contact",
     },
   ];
 
