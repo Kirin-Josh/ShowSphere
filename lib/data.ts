@@ -104,7 +104,7 @@ export const events: Event[] = [
       title: "Featured Charity Event",
       date: "Jan 15, 2025",
       venue: "City Hall, Los Angeles",
-      image: "/hero-image5.jpeg",
+      image: "/hero-image2.jpeg",
       type: "image",
       category: "featured",
       link: "/contact",
