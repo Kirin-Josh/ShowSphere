@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -10,7 +11,10 @@ interface NavigationProps {
   onNavigate: (page: string) => void;
 }
 
-function NavbarComponent({ currentpage, onNavigate }: NavigationProps) {
+export default function NavbarComponent({
+  currentpage,
+  onNavigate,
+}: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -34,114 +38,122 @@ function NavbarComponent({ currentpage, onNavigate }: NavigationProps) {
   };
 
   return (
-    <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-[#1A1A1A]/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-2">
-          <div className="flex items-center justify-between h-20">
-            {/* LOGO */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="cursor-pointer px-4"
-              onClick={() => onNavigate("home")}
-            >
-              <Image
-                src="/sax-logo.jpg"
-                alt="Logo"
-                width={70}
-                height={70}
-                className="rounded-full"
-              />
-            </motion.div>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/90 text-black/90 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-2">
+        <div className="flex items-center justify-between h-20">
+          {/* LOGO */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="cursor-pointer px-4"
+            onClick={() => onNavigate("home")}
+          >
+            <Image
+              src="/sax-logo.jpg"
+              alt="Logo"
+              width={70}
+              height={70}
+              className="rounded-full"
+            />
+          </motion.div>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-6">
-              {NavItems.map((item) => (
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {NavItems.map((item) => {
+              const isActive = currentpage === item.id;
+
+              return (
                 <motion.button
                   key={item.id}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={() => handleNavClick(item.id)}
-                  className={`relative text-white transition-colors ${
-                    currentpage === item.id
-                      ? "opacity-100"
-                      : "opacity-70 hover:opacity-100"
+                  className={`relative text-sm font-medium tracking-wide transition-colors ${
+                    isActive
+                      ? "text-primary"
+                      : isScrolled
+                      ? "text-black/80 hover:text-primary"
+                      : "text-white hover:text-primary"
                   }`}
                 >
                   {item.name}
 
-                  {currentpage === item.id && (
-                    <motion.div
+                  {isActive && (
+                    <motion.span
                       layoutId="activeTab"
-                      className="absolute left-0 right-0 -bottom-1 h-0.5 bg-[#6C63FF]"
+                      className="absolute left-0 right-0 -bottom-1 h-0.5 bg-primary rounded-full"
                     />
                   )}
                 </motion.button>
-              ))}
+              );
+            })}
 
-              <Button
-                onClick={() => handleNavClick("booking")}
-                className="h-10 w-32 bg-[#6C63FF] text-white rounded-full hover:bg-[#5449E0] transition-colors"
-              >
-                Book Now
-              </Button>
-            </div>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-white"
+            {/* CTA */}
+            <Button
+              onClick={() => handleNavClick("booking")}
+              className="h-10 px-8 rounded-full bg-primary text-primary-foreground font-medium tracking-wide shadow-md hover:shadow-lg hover:brightness-110 transition"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              Book Now
+            </Button>
           </div>
-        </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.25 }}
-              className="md:hidden bg-[#1A1A1A] shadow-lg"
-            >
-              <div className="px-4 py-6 space-y-4">
-                {NavItems.map((item) => (
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            className="md:hidden p-2 text-foreground"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-background border-t border-border"
+          >
+            <div className="px-6 py-6 space-y-3">
+              {NavItems.map((item) => {
+                const isActive = currentpage === item.id;
+
+                return (
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`block w-full text-left text-white text-lg px-4 py-2 rounded-lg ${
-                      currentpage === item.id
-                        ? "bg-[#6C63FF]"
-                        : "hover:bg-[#2D2D2D]"
+                    className={`block w-full text-left text-base font-medium tracking-wide px-4 py-3 rounded-xl transition ${
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow"
+                        : "text-foreground/80 hover:bg-muted"
                     }`}
                   >
                     {item.name}
                   </button>
-                ))}
+                );
+              })}
 
-                <button
-                  onClick={() => handleNavClick("booking")}
-                  className="block w-full px-6 py-3 bg-[#6C63FF] text-white rounded-full hover:bg-[#5449E0] transition-colors"
-                >
-                  Book Now
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.nav>
-    </>
+              <Button
+                onClick={() => handleNavClick("booking")}
+                className="w-full mt-4 h-12 rounded-full bg-primary text-primary-foreground font-medium tracking-wide shadow-md hover:brightness-110"
+              >
+                Book Now
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }
-
-export default NavbarComponent;
