@@ -72,7 +72,7 @@ export function GalleryPage() {
           <div className="absolute inset-0 bg-black/50 animate-pulse" />
         )}
 
-        {/* MOBILE FALLBACK IMAGE
+        {/* MOBILE FALLBACK IMAGE */}
         <div className="absolute inset-0 w-full h-full block md:hidden">
           <Image
             src="/fallback-image.jpeg"
@@ -80,18 +80,18 @@ export function GalleryPage() {
             fill
             className="object-cover"
           />
-        </div> */}
+        </div>
 
         {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black/80" />
 
         {/* CINEMATIC FILM GRAIN */}
-        <div
+        {/* <div
           className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-30"
           style={{
             backgroundImage: "url('https://i.imgur.com/8nJkq7U.png')",
           }}
-        />
+        /> */}
 
         {/* PARALLAX FLOATING ELEMENT */}
         <motion.div

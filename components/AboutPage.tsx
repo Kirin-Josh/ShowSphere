@@ -77,13 +77,13 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl from-[#E8ECEE] via-[#D5DBDE] to-[#C5CDD1] bg-linear-to-br hover:scale-90 transition-transform duration-500">
               <Image
-                src="/about-image.jpeg"
+                src="/booking4.jpg"
                 width={800}
                 height={600}
                 alt="Professional Performer"
-                className="w-full h-112.5 object-cover"
+                className="w-full h-112.5 object-contain scale-150"
               />
 
               <motion.div
