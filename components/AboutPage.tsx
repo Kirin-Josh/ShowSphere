@@ -35,13 +35,13 @@ export function AboutPage() {
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-20 left-20 w-[500px] h-[500px] bg-[#6C63FF]/30 rounded-full blur-[150px]"
+          className="absolute top-20 left-20 w-125 h-125 bg-primary/30 rounded-full blur-[150px]"
         />
 
         <motion.div
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#6C63FF]/20 rounded-full blur-[160px]"
+          className="absolute bottom-10 right-10 w-112.5 h-112.5 bg-primary/20 rounded-full blur-[160px]"
         />
 
         {/* Content */}
@@ -52,7 +52,7 @@ export function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
-            About <span className="text-[#6C63FF]">NeySax</span>
+            About <span className="text-primary">NeySax</span>
           </motion.h1>
 
           <motion.p
@@ -77,19 +77,19 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl from-[#E8ECEE] via-[#D5DBDE] to-[#C5CDD1] bg-linear-to-br hover:scale-90 transition-transform duration-500">
               <Image
-                src="/about-image.jpeg"
+                src="/booking4.jpg"
                 width={800}
                 height={600}
                 alt="Professional Performer"
-                className="w-full h-[450px] object-cover"
+                className="w-full h-112.5 object-contain scale-150"
               />
 
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#6C63FF] rounded-full opacity-20 blur-2xl"
+                className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full opacity-20 blur-2xl"
               />
             </div>
           </motion.div>
@@ -124,7 +124,7 @@ export function AboutPage() {
             </p>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              <div className="px-6 py-3 bg-[#6C63FF] text-white rounded-full font-medium inline-block shadow-md">
+              <div className="px-6 py-3 bg-primary text-white rounded-full font-medium inline-block shadow-md">
                 Trusted by 500+ Clients
               </div>
             </motion.div>
@@ -155,8 +155,8 @@ export function AboutPage() {
                 whileHover={{ y: -6, scale: 1.03 }}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="w-16 h-16 bg-[#6C63FF]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <item.icon className="w-8 h-8 text-[#6C63FF]" />
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <item.icon className="w-8 h-8 text-primary" />
                 </div>
 
                 <h4 className="text-xl font-semibold mb-3 text-center">
@@ -175,7 +175,7 @@ export function AboutPage() {
         <motion.div
           animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute bottom-0 right-0 w-96 h-96 bg-[#6C63FF]/15 rounded-full blur-[120px]"
+          className="absolute bottom-0 right-0 w-96 h-96 bg-primary/15 rounded-full blur-[120px]"
         />
 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
@@ -238,7 +238,7 @@ export function AboutPage() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center px-6"
               >
-                <div className="w-3 h-3 bg-[#6C63FF] rounded-full mx-auto mb-4" />
+                <div className="w-3 h-3 bg-primary rounded-full mx-auto mb-4" />
                 <h4 className="text-xl font-semibold mb-3">{v.title}</h4>
                 <p className="text-gray-600">{v.description}</p>
               </motion.div>

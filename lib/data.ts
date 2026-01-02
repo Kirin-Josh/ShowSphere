@@ -84,7 +84,7 @@ export const events: Event[] = [
       title: "Corporate Gala Performance",
       date: "Nov 28, 2025",
       venue: "Grand Ballroom, Manhattan",
-      image: "/hero-image3.jpeg",
+      image: "/hero-image3.jpg",
       type: "image",
       category: "upcoming",
       link: "/contact",

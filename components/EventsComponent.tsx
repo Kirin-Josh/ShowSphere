@@ -45,7 +45,7 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
             className="text-4xl md:text-6xl text-white font-bold mb-4 mt-10"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            NeySax <span className="text-[#6C63FF]">Events</span>
+            NeySax <span className="text-primary">Events</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -70,7 +70,7 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
               onClick={() => setFilter(cat.id as any)}
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 filter === cat.id
-                  ? "bg-[#6C63FF] text-white shadow-lg"
+                  ? "bg-primary text-white shadow-lg"
                   : "bg-white text-gray-600 hover:bg-gray-100"
               }`}
             >
@@ -122,7 +122,7 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleEventClick(event.link!)}
-                    className="mt-4 inline-block px-6 py-2 bg-[#6C63FF] text-white rounded-full font-medium hover:bg-[#5449E0] transition-all"
+                    className="mt-4 inline-block px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary transition-all"
                   >
                     {event.type === "video" ? "Watch Video" : "Book Now"}
                   </motion.button>
