@@ -210,12 +210,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-linear-to-r from-primary to-primary/70 relative overflow-hidden">
+      <section className="py-16 bg-linear-to-r from-primary to-primary/30 relative overflow-hidden">
         {/* Floating animation element */}
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 120, 0] }}
           transition={{ duration: 25, repeat: Infinity }}
-          className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-125 h-125 bg-white/10 rounded-full blur-3xl"
         />
 
         <div className="max-w-3xl mx-auto text-center px-6 relative z-10">
@@ -245,7 +245,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onNavigate("booking")}
-            className="px-12 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all"
+            className="px-12 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all"
           >
             Get Started
           </motion.button>
