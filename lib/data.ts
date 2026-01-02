@@ -19,7 +19,7 @@ export const galleryItems = [
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1646350222809-9f414ad875d0?ixlib=rb-4.0.3&q=80",
+        "/booking2.jpg",
       category: "portrait",
       title: "Professional Portrait",
       type: "image",
@@ -84,7 +84,7 @@ export const events: Event[] = [
       title: "Corporate Gala Performance",
       date: "Nov 28, 2025",
       venue: "Grand Ballroom, Manhattan",
-      image: "/hero-image3.jpeg",
+      image: "/hero-image3.jpg",
       type: "image",
       category: "upcoming",
       link: "/contact",
