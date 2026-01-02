@@ -80,7 +80,7 @@ export function ContactPage() {
             rotate: [0, 180, 360],
           }}
           transition={{ duration: 20, repeat: Infinity }}
-          className="absolute bottom-0 right-0 w-96 h-96 bg-[#6C63FF]/20 rounded-full blur-3xl"
+          className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
@@ -89,7 +89,7 @@ export function ContactPage() {
             className="text-white mb-6 mt-10"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            Get in <span style={{ color: "#6C63FF" }}>Touch</span>
+            Get in <span style={{ color: "var(--primary)" }}>Touch</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -135,7 +135,7 @@ export function ContactPage() {
                       {...register("firstName")}
                       type="text"
                       placeholder="John"
-                      className="w-full px-4 py-3 border rounded-lg focus:border-[#6C63FF]"
+                      className="w-full px-4 py-3 border rounded-lg focus:border-primary"
                     />
                     {errors.firstName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -152,7 +152,7 @@ export function ContactPage() {
                       {...register("lastName")}
                       type="text"
                       placeholder="Doe"
-                      className="w-full px-4 py-3 border rounded-lg focus:border-[#6C63FF]"
+                      className="w-full px-4 py-3 border rounded-lg focus:border-primary"
                     />
                     {errors.lastName && (
                       <p className="text-red-600 text-sm mt-1">
@@ -168,7 +168,7 @@ export function ContactPage() {
                     {...register("email")}
                     type="email"
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3 border rounded-lg focus:border-[#6C63FF]"
+                    className="w-full px-4 py-3 border rounded-lg focus:border-primary"
                   />
                   {errors.email && (
                     <p className="text-red-600 text-sm mt-1">
@@ -183,7 +183,7 @@ export function ContactPage() {
                     {...register("phone")}
                     type="tel"
                     placeholder="+1 (555) 000-0000"
-                    className="w-full px-4 py-3 border rounded-lg focus:border-[#6C63FF]"
+                    className="w-full px-4 py-3 border rounded-lg focus:border-primary"
                   />
                   {errors.phone && (
                     <p className="text-red-600 text-sm mt-1">
@@ -198,7 +198,7 @@ export function ContactPage() {
                     {...register("subject")}
                     type="text"
                     placeholder="Event Inquiry"
-                    className="w-full px-4 py-3 border rounded-lg focus:border-[#6C63FF]"
+                    className="w-full px-4 py-3 border rounded-lg focus:border-primary"
                   />
                   {errors.subject && (
                     <p className="text-red-600 text-sm mt-1">
@@ -213,7 +213,7 @@ export function ContactPage() {
                     {...register("message")}
                     rows={6}
                     placeholder="Tell us about your event..."
-                    className="w-full px-4 py-3 border rounded-lg resize-none focus:border-[#6C63FF]"
+                    className="w-full px-4 py-3 border rounded-lg resize-none focus:border-primary"
                   />
                   {errors.message && (
                     <p className="text-red-600 text-sm mt-1">
@@ -226,7 +226,7 @@ export function ContactPage() {
                   type="submit"
                   disabled={loading}
                   whileHover={{ scale: 1.05 }}
-                  className="w-full px-8 py-4 bg-[#6C63FF] text-white rounded-full"
+                  className="w-full px-8 py-4 bg-primary text-white rounded-full"
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </motion.button>
@@ -253,10 +253,10 @@ export function ContactPage() {
                     href={info.link}
                     className="flex items-start gap-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100"
                   >
-                    <div className="w-12 h-12 bg-[#6C63FF]/10 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                       <info.icon
                         className="w-6 h-6"
-                        style={{ color: "#6C63FF" }}
+                        style={{ color: "var(--primary)" }}
                       />
                     </div>
                     <div>

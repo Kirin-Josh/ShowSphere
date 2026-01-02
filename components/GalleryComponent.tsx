@@ -72,7 +72,7 @@ export function GalleryPage() {
           <div className="absolute inset-0 bg-black/50 animate-pulse" />
         )}
 
-        {/* MOBILE FALLBACK IMAGE */}
+        {/* MOBILE FALLBACK IMAGE
         <div className="absolute inset-0 w-full h-full block md:hidden">
           <Image
             src="/fallback-image.jpeg"
@@ -80,7 +80,7 @@ export function GalleryPage() {
             fill
             className="object-cover"
           />
-        </div>
+        </div> */}
 
         {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black/80" />
@@ -97,7 +97,7 @@ export function GalleryPage() {
         <motion.div
           animate={{ y: [0, 20, 0] }}
           transition={{ repeat: Infinity, duration: 6 }}
-          className="absolute top-16 right-20 w-32 h-32 bg-[#6C63FF]/20 blur-3xl rounded-full"
+          className="absolute top-16 right-20 w-32 h-32 bg-primary/20 blur-3xl rounded-full"
         />
 
         {/* CONTENT */}
@@ -108,7 +108,7 @@ export function GalleryPage() {
             transition={{ duration: 0.8 }}
             className="text-white text-5xl md:text-7xl font-bold mb-6"
           >
-            About <span className="text-[#6C63FF]">NeySax</span>
+            About <span className="text-primary">NeySax</span>
           </motion.h1>
 
           <motion.p
@@ -117,7 +117,7 @@ export function GalleryPage() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-gray-300 text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto"
           >
-            Bringing world-class entertainment to life’s most meaningful
+            Bringing world-class entertainment to life&apos;s most meaningful
             moments.
           </motion.p>
         </div>
@@ -158,7 +158,7 @@ export function GalleryPage() {
               className={`relative pb-1 text-lg transition-all
                 ${
                   filter === cat.id
-                    ? "text-[#6C63FF] font-medium"
+                    ? "text-primary font-medium"
                     : "text-gray-600 hover:text-black"
                 }`}
             >
@@ -167,7 +167,7 @@ export function GalleryPage() {
               {filter === cat.id && (
                 <motion.div
                   layoutId="underline"
-                  className="absolute left-0 right-0 -bottom-1 h-0.5 bg-[#6C63FF]"
+                  className="absolute left-0 right-0 -bottom-1 h-0.5 bg-primary"
                 />
               )}
             </button>

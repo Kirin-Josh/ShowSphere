@@ -49,7 +49,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             >
               Elevate Your Event with
               <br />
-              <span style={{ color: "#6C63FF" }}>
+              <span className="text-primary">
                 Unforgettable Performances
               </span>
             </motion.h1>
@@ -76,7 +76,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onNavigate("booking")}
-                className="h-10 w-32 bg-[#6C63FF] text-white rounded-full hover:bg-[#5449E0] transition-all shadow-lg"
+                className="h-10 w-32 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all shadow-lg"
               >
                 Book Now
               </motion.button>
@@ -84,7 +84,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onNavigate("gallery")}
-                className="h-12 px-4 w-60 font-bold bg-white/10 text-white rounded-full hover:bg-white/20 transition-all backdrop-blur-sm border border-white/30 flex items-center gap-2 justify-center"
+                className="h-12 px-4 w-60 font-bold bg-white/10 text-primary rounded-full hover:bg-white/20 transition-all backdrop-blur-sm border border-white/30 flex items-center gap-2 justify-center"
               >
                 <Play size={20} />
                 View Performances
@@ -123,7 +123,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             >
               <Card className="bg-[#2D2D2D] border border-white/10 rounded-2xl shadow-md hover:bg-[#353535] transition-all w-[16rem]">
                 <CardContent className="flex flex-col items-center text-center py-8">
-                  <stat.icon className="w-12 h-12 mb-4 text-[#6C63FF]" />
+                  <stat.icon className="w-12 h-12 mb-4 text-primary" />
 
                   <h3 className="text-3xl font-semibold text-white">
                     {stat.value}
@@ -174,7 +174,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute top-4 left-4 bg-[#6C63FF] text-white p-1.5 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 left-4 bg-primary text-primary-foreground p-1.5 rounded-full text-sm font-medium">
                       {event.date}
                     </div>
                   </div>
@@ -210,12 +210,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-linear-to-r from-[#6C63FF] to-[#5449E0] relative overflow-hidden">
+      <section className="py-16 bg-linear-to-r from-primary to-primary/30 relative overflow-hidden">
         {/* Floating animation element */}
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 120, 0] }}
           transition={{ duration: 25, repeat: Infinity }}
-          className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-125 h-125 bg-white/10 rounded-full blur-3xl"
         />
 
         <div className="max-w-3xl mx-auto text-center px-6 relative z-10">
@@ -223,7 +223,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-white text-4xl font-bold font-[Poppins] mb-6"
+            className="text-primary-foreground text-4xl font-bold font-[Poppins] mb-6"
           >
             Ready to Make Your Event Spectacular?
           </motion.h2>
@@ -232,7 +232,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-white/90 text-xl mb-10"
+            className="text- text-xl mb-10"
           >
             Let&apos;s create an unforgettable experience together. Book your
             performance today.
@@ -245,7 +245,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onNavigate("booking")}
-            className="px-12 py-4 bg-white text-[#6C63FF] rounded-full font-semibold hover:bg-gray-100 transition-all"
+            className="px-12 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all"
           >
             Get Started
           </motion.button>
