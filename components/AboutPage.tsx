@@ -6,23 +6,27 @@ export function AboutPage() {
   const achievements = [
     {
       icon: Award,
-      title: "Award Winning",
-      description: "Multiple industry awards for outstanding performances",
+      title: "Professional Excellence",
+      description:
+        "We deliver world-class saxophone performances with precision, reliability, and attention to detail — meeting the highest standards",
     },
     {
       icon: Music,
-      title: "15+ Years Experience",
-      description: "Over a decade of professional entertainment excellence",
+      title: "Tailored Music Experiences",
+      description:
+        "Every performance is carefully customized to match your event’s vision, atmosphere, and audience, ensuring a unique and memorable experience.",
     },
     {
       icon: Heart,
-      title: "Client Satisfaction",
-      description: "98% client satisfaction and repeat booking rate",
+      title: "Versatility & Adaptability",
+      description:
+        "From corporate and luxury events to private ceremonies and brand collaborations, Neysax adapts seamlessly across settings, styles, and platforms.",
     },
     {
       icon: Sparkles,
-      title: "Versatile Performances",
-      description: "From intimate gatherings to grand celebrations",
+      title: "Purpose-Driven Artistry",
+      description:
+        "More than entertainment, our music is intentional — designed to create emotional connection, elevate moments, and leave a lasting impact.",
     },
   ];
 
@@ -106,26 +110,30 @@ export function AboutPage() {
             </h2>
 
             <p className="text-gray-600 leading-relaxed mb-4">
-              StageLights began from a passion for creating extraordinary
-              experiences through live music. With more than 15 years in the
-              entertainment world, we’ve proudly performed for hundreds of
-              events nationwide.
+              Neysax is a professional saxophonist and creative brand delivering
+              refined musical experiences for events, collaborations, and
+              personal growth. Known for his expressive sound and intentional
+              artistry, Neysax blends technical excellence with deep emotional
+              storytelling — allowing the saxophone to truly speak.His journey
+              with the saxophone is rooted in discipline, purpose, and a desire
+              to inspire through music beyond entertainment. serves.
             </p>
 
             <p className="text-gray-600 leading-relaxed mb-4">
-              From intimate jazz lounges to grand ballrooms, our journey has
-              shaped a unique performance style rooted in authenticity and deep
-              connection with audiences.
+              From intimate private ceremonies to high-end corporate and luxury
+              events, Neysax brings a signature sound that elevates atmospheres,
+              connects audiences, and leaves lasting impressions.
             </p>
 
             <p className="text-gray-600 leading-relaxed mb-6">
-              We customize every performance to match your event’s atmosphere,
-              ensuring an unforgettable and meaningful experience.
+              More than a performer, Neysax is a mentor and creative partner —
+              committed to excellence, authenticity, and meaningful impact in
+              every space he
             </p>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               <div className="px-6 py-3 bg-primary text-white rounded-full font-medium inline-block shadow-md">
-                Trusted by 500+ Clients
+                Trusted by many Clients
               </div>
             </motion.div>
           </motion.div>
@@ -195,10 +203,9 @@ export function AboutPage() {
             transition={{ delay: 0.2 }}
             className="text-gray-300 text-lg leading-relaxed"
           >
-            To elevate every event with performances that inspire, entertain,
-            and create unforgettable memories. We believe in the transformative
-            power of music — turning ordinary moments into extraordinary
-            experiences.
+            To use music as a powerful tool for expression, excellence, and
+            inspiration — delivering meaningful saxophone experiences while
+            empowering individuals and brands through intentional artistry.
           </motion.p>
         </div>
       </section>
@@ -217,17 +224,17 @@ export function AboutPage() {
               {
                 title: "Excellence",
                 description:
-                  "We deliver exceptional quality in every performance.",
+                  "We are committed to delivering the highest standards in sound quality, professionalism, and service in every performance and collaboration.",
               },
               {
                 title: "Authenticity",
                 description:
-                  "We stay true to our artistic identity while adapting to your vision.",
+                  "Our artistry is sincere and original — each performance reflects true expression, integrity, and a distinctive musical identity.",
               },
               {
-                title: "Partnership",
+                title: "Purpose",
                 description:
-                  "We work collaboratively with you to craft memorable experiences.",
+                  "Music is approached with intention, meaning, and impact — creating experiences that go beyond sound to truly connect and inspire.",
               },
             ].map((v, i) => (
               <motion.div
