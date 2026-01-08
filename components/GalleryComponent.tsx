@@ -108,7 +108,7 @@ export function GalleryPage() {
             transition={{ duration: 0.8 }}
             className="text-white text-5xl md:text-7xl font-bold mb-6"
           >
-            About <span className="text-primary">NeySax</span>
+            NeySax <span className="text-primary">Gallery</span>
           </motion.h1>
 
           <motion.p
@@ -117,8 +117,9 @@ export function GalleryPage() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-gray-300 text-lg md:text-2xl leading-relaxed max-w-2xl mx-auto"
           >
-            Bringing world-class entertainment to life&apos;s most meaningful
-            moments.
+            Explore a curated collection of moments captured from live events,
+            private ceremonies, and exclusive studio sessions. Dive into the
+            world of NeySax through stunning visuals and captivating videos.
           </motion.p>
         </div>
 
