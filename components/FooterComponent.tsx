@@ -104,7 +104,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
 
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-center md:text-left">
-            &copy; 2025 StageLights Entertainment. All rights reserved.
+            &copy; {new Date().getFullYear()} NeySax. All rights reserved.
           </p>
           <div className="flex gap-6 text-gray-400 text-sm">
             <a href="#" className="hover:text-[#6C63FF] transition-colors">
