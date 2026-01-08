@@ -35,8 +35,9 @@ export function FooterComponent({ onNavigate }: FooterProps) {
               />
             </motion.div>
             <p className="text-gray-400 mb-4">
-              Professional live entertainment for corporate events, weddings,
-              festivals, and private celebrations.
+              Live Events | Corporate & Luxury Events | Weddings & Private
+              Ceremonies | Music Coaching & Sax Lessons | Online Mentoring |
+              Brand Collaborations | Studio Sessions
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -60,13 +61,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
               Quick Links
             </h4>
             <ul className="space-y-2">
-              {[
-                "Home",
-                "About",
-                "Gallery",
-                "Events",
-                "Contact",
-              ].map((link) => (
+              {["Home", "About", "Gallery", "Events", "Contact"].map((link) => (
                 <li key={link}>
                   <motion.button
                     whileHover={{ x: 5 }}
@@ -91,7 +86,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                   href="mailto:hello@stagelights.com"
                   className="hover:text-[#6C63FF] transition-colors"
                 >
-                  hello@stagelights.com
+                  ngumnehemiah@neysax.com
                 </a>
               </li>
               <li>
@@ -99,7 +94,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                   href="tel:+15551234567"
                   className="hover:text-[#6C63FF] transition-colors"
                 >
-                  +1 (555) 123-4567
+                  +971582812647
                 </a>
               </li>
               <li>Dubai, DB 10001</li>
