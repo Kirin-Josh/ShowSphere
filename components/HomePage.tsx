@@ -28,7 +28,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           className="absolute inset-0"
         >
           <Image
-            src="/booking1.jpg"
+            src="/booking1.JPG"
             alt="Stage Performance"
             fill
             className="w-full h-full object-cover"

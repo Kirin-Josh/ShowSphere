@@ -1,0 +1,20 @@
+# public/robots.txt
+
+# Allow all crawlers to index public pages
+User-agent: *
+Allow: /
+
+# Block admin routes and private API endpoints
+Disallow: /admin
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /api/admin/
+Disallow: /api/private/
+
+# Block sensitive files
+Disallow: /*.json$
+Disallow: /api/auth/
+
+# Sitemap location
+Sitemap: https://neysax.com/sitemap.xml

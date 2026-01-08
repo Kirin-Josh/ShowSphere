@@ -65,7 +65,6 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                 "About",
                 "Gallery",
                 "Events",
-                "Testimonials",
                 "Contact",
               ].map((link) => (
                 <li key={link}>
@@ -103,16 +102,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                   +1 (555) 123-4567
                 </a>
               </li>
-              <li>New York, NY 10001</li>
-              <li className="pt-2">
-                <motion.button
-                  whileHover={{ x: 5 }}
-                  onClick={() => onNavigate("admin")}
-                  className="text-gray-500 hover:text-[#6C63FF] transition-colors text-sm"
-                >
-                  → Admin Dashboard
-                </motion.button>
-              </li>
+              <li>Dubai, DB 10001</li>
             </ul>
           </div>
         </div>

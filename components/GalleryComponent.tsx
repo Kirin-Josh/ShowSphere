@@ -13,7 +13,10 @@ export function GalleryPage() {
     const [filter, setFilter] = useState<string>("all");
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [muted, setMuted] = useState(true);
-    const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [videoSize] = useState<"small" | "medium" | "large">(
+    "medium"
+  );
 
     const toggleSound = () => {
       if (videoRef.current) {
@@ -61,10 +64,7 @@ export function GalleryPage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source
-            src="/gallery-video.mp4"
-            type="video/mp4"
-          />
+          <source src="/gallery-video.mp4" type="video/mp4" />
         </motion.video>
 
         {/* SHIMMER LOADER */}
@@ -257,11 +257,20 @@ export function GalleryPage() {
             {/* Content */}
             <div
               onClick={(e) => e.stopPropagation()}
-              className="max-w-5xl max-h-[85vh] w-full"
+              className={`${
+                filtered[selected].type === "video"
+                  ? videoSize === "small"
+                    ? "w-full max-w-2xl h-[60vh]"
+                    : videoSize === "medium"
+                    ? "w-full max-w-3xl h-[70vh]"
+                    : "w-full max-w-4xl h-[80vh]"
+                  : "w-full max-w-5xl max-h-[85vh]"
+              }`}
             >
               {filtered[selected].type === "video" ? (
                 <video
                   src={filtered[selected].videoUrl}
+                  poster={filtered[selected].image}
                   controls
                   autoPlay
                   className="w-full h-full object-contain rounded-xl"
