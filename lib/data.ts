@@ -1,25 +1,26 @@
+
 export const galleryItems = [
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1669459881627-06c2a4948e33?ixlib=rb-4.0.3&q=80",
+        "/about-image.jpeg",
       category: "performance",
       title: "Stage Performance",
-      type: "image",
+    type: "video",
+      videoUrl: "/booking-vid4.mp4",
     },
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1761959159004-1c94b22e3f1b?ixlib=rb-4.0.3&q=80",
+        "/instruments.jpg",
       category: "crowd",
       title: "Concert Crowd",
-      type: "video",
-      videoUrl: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+      type: "image",
     },
     {
       id: 3,
       image:
-        "/booking2.jpg",
+        "/booking2.JPG",
       category: "portrait",
       title: "Professional Portrait",
       type: "image",
@@ -27,18 +28,20 @@ export const galleryItems = [
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1561264819-1ccc1c6e0ae9?ixlib=rb-4.0.3&q=80",
+        "/perfomance-img.PNG",
       category: "performance",
       title: "Live Music",
-      type: "image",
+      type: "video",
+      videoUrl: "/booking-vid8.mp4",
     },
     {
       id: 5,
       image:
-        "https://images.unsplash.com/photo-1731083122864-0e226bb5f006?ixlib=rb-4.0.3&q=80",
+        "/performance-img2.PNG",
       category: "performance",
       title: "Jazz Band",
-      type: "image",
+      type: "video",
+      videoUrl: "/booking-vid9.mp4",
     },
     {
       id: 6,
