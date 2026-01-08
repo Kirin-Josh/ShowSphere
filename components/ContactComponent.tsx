@@ -47,20 +47,14 @@ export function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@stagelights.com",
-      link: "mailto:hello@stagelights.com",
+      value: "ngumnehemiah@neysax.com",
+      link: "mailto:ngumnehemiah@neysax.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: MapPin,
-      title: "Office",
-      value: "123 Performance Ave, New York, NY 10001",
-      link: "#",
+      value: "+971582812647",
+      link: "tel:+971582812647",
     },
     {
       icon: Clock,
@@ -97,8 +91,8 @@ export function ContactPage() {
             transition={{ delay: 0.2 }}
             className="text-gray-300 text-xl max-w-2xl mx-auto"
           >
-            Have questions? We&apos;d love to hear from you. Send us a message and
-            we&apos;ll respond as soon as possible.
+            Have questions? We&apos;d love to hear from you. Send us a message
+            and we&apos;ll respond as soon as possible.
           </motion.p>
         </div>
       </section>
