@@ -14,7 +14,7 @@ export function GalleryPage() {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const [muted, setMuted] = useState(true);
   const [loaded, setLoaded] = useState(false);
-  const [videoSize, setVideoSize] = useState<"small" | "medium" | "large">(
+  const [videoSize] = useState<"small" | "medium" | "large">(
     "medium"
   );
 
