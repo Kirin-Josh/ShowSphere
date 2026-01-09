@@ -14,6 +14,7 @@ export const ContactBookingSchema = z.object({
   phone: z.string().min(6, "Enter a valid phone number"),
   subject: z.string().min(2, "Subject is required"),
   message: z.string().min(10, "Message must be at least 10 characters"),
+  website: z.string().optional(), // Honeypot field
 });
 
 export type ContactBookingSchemaType = z.infer<typeof ContactBookingSchema>;

@@ -4,6 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { upcomingEvents } from "@/lib/data";
 import Image from "next/image";
 
+interface Event {
+  title: string;
+  date: string;
+  venue: string;
+  image: string;
+}
+
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
@@ -14,7 +21,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
     { icon: Star, value: "4.9/5", label: "Average Rating" },
     { icon: Users, value: "10K+", label: "Happy Clients" },
   ];
-
 
   return (
     <div className="min-h-screen">
@@ -49,9 +55,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             >
               Elevate Your Event with
               <br />
-              <span className="text-primary">
-                Unforgettable Performances
-              </span>
+              <span className="text-primary">Unforgettable Performances</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -156,56 +160,80 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </motion.div>
 
           {/* Events Grid */}
-          <div className="flex flex-col md:flex-row items-center justify-evenly gap-10">
-            {upcomingEvents.map((event, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-              >
-                <Card className="overflow-hidden border-none shadow-lg rounded-2xl bg-white w-[20rem]">
-                  <div className="relative h-60 w-full group overflow-hidden">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-primary text-primary-foreground p-1.5 rounded-full text-sm font-medium">
-                      {event.date}
-                    </div>
-                  </div>
-
-                  <CardContent className="p-3 text-center">
-                    <h4 className="text-2xl font-semibold text-[#1A1A1A] font-[Poppins] mb-2">
-                      {event.title}
-                    </h4>
-                    <p className="text-gray-600">{event.venue}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => onNavigate("events")}
-              className="px-8 py-3 mb-2 bg-[#1A1A1A] text-white rounded-full hover:bg-[#2D2D2D] transition-colors"
+          {upcomingEvents.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex justify-center items-center py-12"
             >
-              View All Events
-            </motion.button>
-          </motion.div>
+              <div className="bg-white rounded-2xl shadow-lg p-12 text-center max-w-md">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-3 font-[Poppins]">
+                  No Performances Yet
+                </h3>
+                <p className="text-gray-600">
+                  Coming soon! Check back later for upcoming shows and
+                  performances.
+                </p>
+              </div>
+            </motion.div>
+          ) : (
+            <div className="flex flex-col md:flex-row items-center justify-evenly gap-10">
+              {(upcomingEvents as Event[]).map((event, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <Card className="overflow-hidden border-none shadow-lg rounded-2xl bg-white w-[20rem]">
+                    <div className="relative h-60 w-full group overflow-hidden">
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 bg-primary text-primary-foreground p-1.5 rounded-full text-sm font-medium">
+                        {event.date}
+                      </div>
+                    </div>
+
+                    <CardContent className="p-3 text-center">
+                      <h4 className="text-2xl font-semibold text-[#1A1A1A] font-[Poppins] mb-2">
+                        {event.title}
+                      </h4>
+                      <p className="text-gray-600">{event.venue}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {/* CTA Button - Only show if there are events */}
+          {upcomingEvents.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-center mt-12"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => onNavigate("events")}
+                className="px-8 py-3 mb-2 bg-[#1A1A1A] text-white rounded-full hover:bg-[#2D2D2D] transition-colors"
+              >
+                View All Events
+              </motion.button>
+            </motion.div>
+          )}
         </div>
       </section>
 

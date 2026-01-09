@@ -46,10 +46,95 @@ export const galleryItems = [
     {
       id: 6,
       image:
-        "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-4.0.3&q=80",
-      category: "crowd",
+        "/booking1.JPG",
+      category: "portrait",
       title: "Festival Crowd",
       type: "image",
+    },
+    {
+      id: 7,
+      image:
+        "/booking3.jpg",
+      category: "portrait",
+      title: "Studio Portrait",
+      type: "image",
+    },
+    {
+      id: 8,
+      image:
+        "/booking5.JPG",
+      category: "portrait",
+      title: "Professional Photoshoot",
+      type: "image",
+    },
+    {
+      id: 9,
+      image:
+        "/concert1.jpeg",
+      category: "performance",
+      title: "Concert Night",
+      type: "image",
+    },
+    {
+      id: 10,
+      image:
+        "/concert2.jpeg",
+      category: "crowd",
+      title: "Audience Energy",
+      type: "image",
+    },
+    {
+      id: 11,
+      image:
+        "/concert3.jpeg",
+      category: "performance",
+      title: "Featured Performance",
+      type: "image",
+    },
+    {
+      id: 12,
+      image:
+        "/perfomance-img.PNG",
+      category: "performance",
+      title: "Stage Highlight",
+      type: "video",
+      videoUrl: "/booking-vid2.MP4",
+    },
+    {
+      id: 13,
+      image:
+        "/about-image.jpeg",
+      category: "performance",
+      title: "Special Moment",
+      type: "video",
+      videoUrl: "/booking-vid3.MP4",
+    },
+    {
+      id: 14,
+      image:
+        "/performance-img2.PNG",
+      category: "performance",
+      title: "Saxophone Solo",
+      type: "video",
+      videoUrl: "/booking-vid5.mp4",
+    },
+    {
+      id: 15,
+      image:
+        "/concert1.jpeg",
+      category: "performance",
+      title: "Concert Recording",
+      type: "video",
+      videoUrl: "/booking-vid7.mp4",
+    },
+    {
+      id: 16,
+      image:
+        "/concert2.jpeg",
+      category: "performance",
+      title: "Holiday Concert",
+      type: "video",
+      videoUrl: "/concert-vid2.mp4",
     },
 ];
   
@@ -71,48 +156,7 @@ interface Event {
   link?: string; // ticket or video link
 }
   
-export const events: Event[] = [
-    {
-      id: 1,
-      title: "Concert",
-      date: "Nov 20, 2025",
-      venue: "Blue Note Jazz Club, NYC",
-      image: "/concert1.jpeg",
-      type: "image",
-      category: "upcoming",
-      link: "/contact",
-    },
-    {
-      id: 2,
-      title: "Corporate Gala Performance",
-      date: "Nov 28, 2025",
-      venue: "Grand Ballroom, Manhattan",
-      image: "/concert2.jpeg",
-      type: "image",
-      category: "upcoming",
-      link: "/contact",
-    },
-    {
-      id: 3,
-      title: "Holiday Concert Series",
-      date: "Dec 5, 2024",
-      venue: "Symphony Hall, Boston",
-      image: "/concert-vid.mp4",
-      type: "video",
-      category: "past",
-      link: "/concert-vid.mp4",
-    },
-    {
-      id: 4,
-      title: "Featured Charity Event",
-      date: "Jan 15, 2025",
-      venue: "City Hall, Los Angeles",
-      image: "/concert3.jpeg",
-      type: "image",
-      category: "featured",
-      link: "/contact",
-    },
-  ];
+export const events: Event[] = [];
 
  export const eventCategories = [
     { id: "all", label: "All" },
@@ -120,27 +164,12 @@ export const events: Event[] = [
     { id: "past", label: "Past" },
     { id: "featured", label: "Featured" },
 ];
+
+interface UpcomingEvent {
+  date: string;
+  title: string;
+  venue: string;
+  image: string;
+}
   
-export const upcomingEvents = [
-    {
-      date: "Nov 20",
-      title: "Jazz Night at Blue Note",
-      venue: "Blue Note Jazz Club, NYC",
-      image:
-        "/hero-image2.jpeg",
-    },
-    {
-      date: "Nov 28",
-      title: "Corporate Gala Performance",
-      venue: "Grand Ballroom, Manhattan",
-      image:
-        "/hero-image3.jpeg",
-    },
-    {
-      date: "Dec 5",
-      title: "Holiday Concert Series",
-      venue: "Symphony Hall, Boston",
-      image:
-        "/hero-image4.jpeg",
-    },
-  ];
+export const upcomingEvents: UpcomingEvent[] = [];

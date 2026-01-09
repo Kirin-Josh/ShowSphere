@@ -82,8 +82,28 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
 
       {/* Events Grid */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredEvents.map((event) => (
+        <div className="max-w-7xl mx-auto px-6">
+          {filteredEvents.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex justify-center items-center min-h-[400px]"
+            >
+              <div className="bg-white rounded-2xl shadow-lg p-12 text-center max-w-md">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-3 font-[Poppins]">
+                  No Events Yet
+                </h3>
+                <p className="text-gray-600">
+                  Coming soon! Check back later for upcoming performances and events.
+                </p>
+              </div>
+            </motion.div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredEvents.map((event) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
@@ -130,6 +150,8 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
               </div>
             </motion.div>
           ))}
+            </div>
+          )}
         </div>
       </section>
     </div>
