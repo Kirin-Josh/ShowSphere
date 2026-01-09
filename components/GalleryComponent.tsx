@@ -75,7 +75,7 @@ export function GalleryPage() {
         {/* MOBILE FALLBACK IMAGE */}
         <div className="absolute inset-0 w-full h-full block md:hidden">
           <Image
-            src="/fallback-image.jpeg"
+            src="/fall-back.jpeg"
             alt="Fallback"
             fill
             className="object-cover"
