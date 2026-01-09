@@ -61,8 +61,17 @@ setInterval(() => {
 }, 10 * 60 * 1000);
 
 export async function POST(request: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY not configured");
+      return NextResponse.json(
+        { error: "Email service not configured. Please contact support." },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     // Get client IP for rate limiting
     const clientIp = getClientIp(request);
 
