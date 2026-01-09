@@ -87,7 +87,7 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex justify-center items-center min-h-[400px]"
+              className="flex justify-center items-center min-h-100"
             >
               <div className="bg-white rounded-2xl shadow-lg p-12 text-center max-w-md">
                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
