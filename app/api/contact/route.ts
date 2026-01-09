@@ -3,8 +3,6 @@ import { ContactBookingSchema } from "@/lib/utils";
 import { Resend } from "resend";
 import { z } from "zod";
 
-// Initialize Resend with API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Rate limiting store (in production, use Redis or similar)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
@@ -26,7 +24,6 @@ function getClientIp(request: NextRequest): string {
     return realIp;
   }
   
-  // Fallback to a default (shouldn't happen in production)
   return "unknown";
 }
 
@@ -64,6 +61,7 @@ setInterval(() => {
 }, 10 * 60 * 1000);
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     // Get client IP for rate limiting
     const clientIp = getClientIp(request);
