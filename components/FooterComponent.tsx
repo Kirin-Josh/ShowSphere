@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import Image from "next/image";
+import { FaTiktok } from "react-icons/fa";
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -8,10 +9,21 @@ interface FooterProps {
 
 export function FooterComponent({ onNavigate }: FooterProps) {
   const socialLinks = [
-    { icon: Facebook, label: "Facebook", url: "#" },
-    { icon: Instagram, label: "Instagram", url: "#" },
-    { icon: Twitter, label: "Twitter", url: "#" },
-    { icon: Linkedin, label: "LinkedIn", url: "#" },
+    {
+      icon: Facebook,
+      label: "Facebook",
+      url: "https://www.facebook.com/share/1MvzBwuYqk/",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      url: "https://www.instagram.com/neysax237?igsh=MXJjcHFwcHMxODd2Mg%3D%3D&utm_source=qr",
+    },
+    {
+      icon: FaTiktok,
+      label: "Tiktok",
+      url: "https://www.tiktok.com/@neysax237",
+    },
   ];
 
   return (
@@ -44,7 +56,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                 <motion.a
                   key={social.label}
                   href={social.url}
-                  whileHover={{ scale: 1.1, backgroundColor: "#6C63FF" }}
+                  whileHover={{ scale: 1.1, backgroundColor: "text-primary" }}
                   whileTap={{ scale: 0.9 }}
                   className="w-10 h-10 bg-[#2D2D2D] rounded-full flex items-center justify-center transition-colors"
                   aria-label={social.label}
@@ -66,7 +78,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                   <motion.button
                     whileHover={{ x: 5 }}
                     onClick={() => onNavigate(link.toLowerCase())}
-                    className="text-gray-400 hover:text-[#6C63FF] transition-colors"
+                    className="text-gray-400 hover:text-primary transition-colors"
                   >
                     {link}
                   </motion.button>
