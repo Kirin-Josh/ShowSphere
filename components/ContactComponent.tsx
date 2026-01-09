@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -11,6 +11,7 @@ import { ContactBookingSchema, ContactBookingSchemaType } from "@/lib/utils";
 export function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -24,6 +25,8 @@ export function ContactPage() {
   async function onSubmit(data: ContactBookingSchemaType) {
     try {
       setLoading(true);
+      setError(null);
+      setSent(false);
 
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -31,13 +34,24 @@ export function ContactPage() {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Submission failed");
+      }
 
       setSent(true);
       reset();
+      
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => setSent(false), 5000);
     } catch (err) {
       console.error(err);
-      alert("Could not send message. Try again.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Could not send message. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -60,6 +74,12 @@ export function ContactPage() {
       icon: Clock,
       title: "Business Hours",
       value: "Mon - Fri: 9AM - 6PM EST",
+      link: "#",
+    },
+    {
+      icon: Clock,
+      title: "Weekend Hours",
+      value: "Sat - Sun: 10AM - 4PM EST",
       link: "#",
     },
   ];
@@ -114,12 +134,44 @@ export function ContactPage() {
               </h2>
 
               {sent && (
-                <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">
-                  Message sent successfully.
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg flex items-start gap-3"
+                >
+                  <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">Message sent successfully!</p>
+                    <p className="text-sm mt-1">We&apos;ll get back to you within 24 hours.</p>
+                  </div>
+                </motion.div>
+              )}
+
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-50 border border-red-200 text-red-800 rounded-lg flex items-start gap-3"
+                >
+                  <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">Failed to send message</p>
+                    <p className="text-sm mt-1">{error}</p>
+                  </div>
+                </motion.div>
               )}
 
               <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                {/* Honeypot field - hidden from users, catches bots */}
+                <input
+                  {...register("website")}
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="absolute opacity-0 pointer-events-none"
+                  aria-hidden="true"
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-gray-700 mb-2">
