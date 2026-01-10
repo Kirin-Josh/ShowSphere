@@ -109,7 +109,6 @@ export function FooterComponent({ onNavigate }: FooterProps) {
                   +971582812647
                 </a>
               </li>
-              <li>Dubai, DB 10001</li>
             </ul>
           </div>
         </div>
