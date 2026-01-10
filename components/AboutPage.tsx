@@ -116,7 +116,7 @@ export function AboutPage() {
               artistry, Neysax blends technical excellence with deep emotional
               storytelling — allowing the saxophone to truly speak.His journey
               with the saxophone is rooted in discipline, purpose, and a desire
-              to inspire through music beyond entertainment. serves.
+              to inspire through music beyond entertainment.
             </p>
 
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -128,7 +128,7 @@ export function AboutPage() {
             <p className="text-gray-600 leading-relaxed mb-6">
               More than a performer, Neysax is a mentor and creative partner —
               committed to excellence, authenticity, and meaningful impact in
-              every space he
+              every space he serves.
             </p>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
