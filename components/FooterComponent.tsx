@@ -22,7 +22,7 @@ export function FooterComponent({ onNavigate }: FooterProps) {
     {
       icon: FaTiktok,
       label: "Tiktok",
-      url: "https://www.tiktok.com/@neysax237",
+      url: "http://www.tiktok.com/@neysax23",
     },
   ];
 
