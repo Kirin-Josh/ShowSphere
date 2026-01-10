@@ -94,16 +94,16 @@ export const galleryItems = [
     {
       id: 12,
       image:
-        "/perfomance-img.PNG",
+        "/booking6.png",
       category: "performance",
       title: "Stage Highlight",
       type: "video",
-      videoUrl: "/booking-vid2.MP4",
+      videoUrl: "/concert-vid.MP4",
     },
     {
       id: 13,
       image:
-        "/about-image.jpeg",
+        "/booking-vid3.PNG",
       category: "performance",
       title: "Special Moment",
       type: "video",

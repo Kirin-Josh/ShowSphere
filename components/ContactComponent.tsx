@@ -139,7 +139,7 @@ export function ContactPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg flex items-start gap-3"
                 >
-                  <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 mt-0.5 shrink-0" />
                   <div>
                     <p className="font-semibold">Message sent successfully!</p>
                     <p className="text-sm mt-1">We&apos;ll get back to you within 24 hours.</p>
@@ -153,7 +153,7 @@ export function ContactPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-red-50 border border-red-200 text-red-800 rounded-lg flex items-start gap-3"
                 >
-                  <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                  <AlertCircle className="w-5 h-5 mt-0.5 shrink-0" />
                   <div>
                     <p className="font-semibold">Failed to send message</p>
                     <p className="text-sm mt-1">{error}</p>
@@ -318,12 +318,18 @@ export function ContactPage() {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Google Map Embed */}
               <motion.div className="rounded-xl overflow-hidden shadow-lg h-80">
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <MapPin size={48} />
-                  <p className="text-sm text-gray-600 ml-2">Dubai Db</p>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.68288599616!2d54.947330484568074!3d25.076280747291226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sae!4v1736512800000!5m2!1sen!2sae"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Dubai Location"
+                />
               </motion.div>
             </motion.div>
           </div>

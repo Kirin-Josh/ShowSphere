@@ -2,66 +2,26 @@
 import { FooterComponent } from "@/components/FooterComponent";
 import NavbarComponent from "@/components/NavbarComponent";
 import { HomePage } from "@/components/HomePage";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { AboutPage } from "@/components/AboutPage";
-import { GalleryPage } from "@/components/GalleryComponent";
-import EventsPage from "@/components/EventsComponent";
-import { ContactPage } from "@/components/ContactComponent";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  // Initialize page from URL hash
-  const [currentPage, setCurrentPage] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.location.hash.slice(1) || "home";
-    }
-    return "home";
-  });
+  const router = useRouter();
 
   const handleNavigate = (page: string) => {
     // Remove leading slash if present
     const cleanPage = page.startsWith("/") ? page.slice(1) : page;
 
-    setCurrentPage(cleanPage);
-
-    // Update URL hash without page reload
-    window.location.hash = cleanPage;
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (cleanPage === "home") {
+      router.push("/");
+    } else {
+      router.push(`/${cleanPage}`);
+    }
   };
-
-  // Handle browser back/forward buttons and hash changes
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1) || "home";
-      setCurrentPage(hash);
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
 
   return (
     <div className="min-h-screen">
-      <NavbarComponent currentpage={currentPage} onNavigate={handleNavigate} />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPage}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          {currentPage === "home" && <HomePage onNavigate={handleNavigate} />}
-          {currentPage === "about" && <AboutPage />}
-          {currentPage === "gallery" && <GalleryPage />}
-          {currentPage === "events" && (
-            <EventsPage onNavigate={handleNavigate} />
-          )}
-          {currentPage === "contact" && <ContactPage />}
-          {currentPage === "booking" && <ContactPage />}
-        </motion.div>
-      </AnimatePresence>
+      <NavbarComponent currentpage="home" onNavigate={handleNavigate} />
+      <HomePage onNavigate={handleNavigate} />
       <FooterComponent onNavigate={handleNavigate} />
     </div>
   );

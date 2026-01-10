@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import { BookingDialog } from "./BookingDialog";
 
 interface NavigationProps {
   currentpage: string;
@@ -17,6 +18,7 @@ export default function NavbarComponent({
 }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -97,7 +99,7 @@ export default function NavbarComponent({
 
             {/* CTA */}
             <Button
-              onClick={() => handleNavClick("booking")}
+              onClick={() => setIsBookingDialogOpen(true)}
               className="h-10 px-8 rounded-full bg-primary text-primary-foreground font-medium tracking-wide shadow-md hover:shadow-lg hover:brightness-110 transition"
             >
               Book Now
@@ -145,7 +147,10 @@ export default function NavbarComponent({
               })}
 
               <Button
-                onClick={() => handleNavClick("booking")}
+                onClick={() => {
+                  setIsBookingDialogOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="w-full mt-4 h-12 rounded-full bg-primary text-primary-foreground font-medium tracking-wide shadow-md hover:brightness-110"
               >
                 Book Now
@@ -154,6 +159,12 @@ export default function NavbarComponent({
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Booking Dialog */}
+      <BookingDialog
+        isOpen={isBookingDialogOpen}
+        onClose={() => setIsBookingDialogOpen(false)}
+      />
     </motion.nav>
   );
 }
