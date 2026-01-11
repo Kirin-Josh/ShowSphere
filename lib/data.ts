@@ -3,11 +3,11 @@ export const galleryItems = [
     {
       id: 1,
       image:
-        "/about-image.jpeg",
+        "/performance-img3.JPG",
       category: "performance",
       title: "Stage Performance",
-    type: "video",
-      videoUrl: "/booking-vid4.mp4",
+      type: "video",
+      videoUrl: "/booking-vid4.MP4",
     },
     {
       id: 2,
@@ -98,7 +98,7 @@ export const galleryItems = [
       category: "performance",
       title: "Stage Highlight",
       type: "video",
-      videoUrl: "/concert-vid.MP4",
+      videoUrl: "/concert-vid.mp4",
     },
     {
       id: 13,
@@ -112,7 +112,7 @@ export const galleryItems = [
     {
       id: 14,
       image:
-        "/performance-img2.PNG",
+        "/performance-img4.JPG",
       category: "performance",
       title: "Saxophone Solo",
       type: "video",
