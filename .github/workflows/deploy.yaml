@@ -18,4 +18,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /home/xirhvorqzl/neysax.com/Kirin10
+          server-dir: /home/xirhvorqzl/neysax.com/Kirin10/
