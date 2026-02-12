@@ -8,6 +8,7 @@ jobs:
   web-deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    protocol: ftps
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
@@ -18,4 +19,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /home/neysax.com/
+          server-dir: /home/xirhvorqzl/neysax.com/
