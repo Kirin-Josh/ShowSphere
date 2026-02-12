@@ -50,7 +50,6 @@ function checkRateLimit(ip: string): { allowed: boolean; resetTime?: number } {
   return { allowed: true };
 }
 
-// Clean up old entries periodically (every 10 minutes)
 setInterval(() => {
   const now = Date.now();
   for (const [ip, record] of rateLimitStore.entries()) {
