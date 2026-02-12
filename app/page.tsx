@@ -8,7 +8,6 @@ export default function Home() {
   const router = useRouter();
 
   const handleNavigate = (page: string) => {
-    // Remove leading slash if present
     const cleanPage = page.startsWith("/") ? page.slice(1) : page;
 
     if (cleanPage === "home") {
