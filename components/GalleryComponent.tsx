@@ -47,7 +47,6 @@ export function GalleryPage() {
 
   return (
     <div className="min-h-screen">
-      {/* ========================= HEADER ========================= */}
       <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
         {/* BACKGROUND VIDEO */}
         <motion.video

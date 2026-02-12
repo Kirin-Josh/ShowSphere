@@ -71,7 +71,6 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* ----------------- STORY ----------------- */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           {/* IMAGE */}
