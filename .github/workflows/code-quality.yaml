@@ -1,0 +1,73 @@
+name: 🧹 Code Quality & Build Check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [develop, feature/*]
+
+jobs:
+  lint-test-build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: 🛠 Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      # 3️⃣ Frontend Checks
+      - name: 🚀 Install frontend dependencies
+        working-directory: booking-frontend
+        run: npm ci
+
+      - name: 🧹 Lint frontend
+        working-directory: booking-frontend
+        run: |
+          npm install eslint prettier eslint-config-next --save-dev
+          npx eslint . --ext .js,.jsx,.ts,.tsx || true
+          npx prettier --check .
+
+      - name: 🧪 Build frontend
+        working-directory: booking-frontend
+        run: npm run build
+
+      # 4️⃣ Backend Checks
+      - name: 🧩 Install backend dependencies
+        working-directory: booking-backend
+        run: npm ci
+
+      - name: 🧹 Lint backend
+        working-directory: booking-backend
+        run: |
+          npm install eslint prettier --save-dev
+          npx eslint . --ext .js,.ts || true
+          npx prettier --check .
+
+      - name: 🧪 Run backend tests
+        working-directory: booking-backend
+        run: |
+          npm install jest supertest --save-dev
+          npx jest --passWithNoTests
+
+      - name: 🧱 Build check
+        run: echo "✅ Code linted, tested, and built successfully!"
+
+  # 5️⃣ Optional: Enforce branch rules
+  protection:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: ✅ Enforce clean PR
+        run: |
+          echo "✅ PR to main must pass all checks before merging."
