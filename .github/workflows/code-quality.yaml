@@ -31,14 +31,12 @@ jobs:
         run: npm ci
 
       - name: 🧹 Lint frontend
-        working-directory: booking-frontend
         run: |
           npm install eslint prettier eslint-config-next --save-dev
           npx eslint . --ext .js,.jsx,.ts,.tsx || true
           npx prettier --check .
 
       - name: 🧪 Build frontend
-        working-directory: booking-frontend
         run: npm run build
 
       # 4️⃣ Backend Checks
