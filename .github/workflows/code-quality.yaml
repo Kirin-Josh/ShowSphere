@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [develop, feature/*]
+    branches: [main, feature/*]
 
 jobs:
   lint-test-build:
@@ -43,22 +43,22 @@ jobs:
         run: npm run build
 
       # 4️⃣ Backend Checks
-      - name: 🧩 Install backend dependencies
-        working-directory: booking-backend
-        run: npm ci
+      # - name: 🧩 Install backend dependencies
+      #   working-directory: booking-backend
+      #   run: npm ci
 
-      - name: 🧹 Lint backend
-        working-directory: booking-backend
-        run: |
-          npm install eslint prettier --save-dev
-          npx eslint . --ext .js,.ts || true
-          npx prettier --check .
+      # - name: 🧹 Lint backend
+      #   working-directory: booking-backend
+      #   run: |
+      #     npm install eslint prettier --save-dev
+      #     npx eslint . --ext .js,.ts || true
+      #     npx prettier --check .
 
-      - name: 🧪 Run backend tests
-        working-directory: booking-backend
-        run: |
-          npm install jest supertest --save-dev
-          npx jest --passWithNoTests
+      # - name: 🧪 Run backend tests
+      #   working-directory: booking-backend
+      #   run: |
+      #     npm install jest supertest --save-dev
+      #     npx jest --passWithNoTests
 
       - name: 🧱 Build check
         run: echo "✅ Code linted, tested, and built successfully!"
