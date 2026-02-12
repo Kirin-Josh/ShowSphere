@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Phone, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -42,7 +42,7 @@ export function ContactPage() {
 
       setSent(true);
       reset();
-      
+
       // Auto-hide success message after 5 seconds
       setTimeout(() => setSent(false), 5000);
     } catch (err) {
@@ -50,7 +50,7 @@ export function ContactPage() {
       setError(
         err instanceof Error
           ? err.message
-          : "Could not send message. Please try again."
+          : "Could not send message. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -142,7 +142,9 @@ export function ContactPage() {
                   <CheckCircle className="w-5 h-5 mt-0.5 shrink-0" />
                   <div>
                     <p className="font-semibold">Message sent successfully!</p>
-                    <p className="text-sm mt-1">We&apos;ll get back to you within 24 hours.</p>
+                    <p className="text-sm mt-1">
+                      We&apos;ll get back to you within 24 hours.
+                    </p>
                   </div>
                 </motion.div>
               )}

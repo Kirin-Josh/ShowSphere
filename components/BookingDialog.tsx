@@ -57,7 +57,7 @@ export function BookingDialog({ isOpen, onClose }: BookingDialogProps) {
       setError(
         err instanceof Error
           ? err.message
-          : "Could not send message. Please try again."
+          : "Could not send message. Please try again.",
       );
     } finally {
       setLoading(false);
@@ -108,7 +108,8 @@ export function BookingDialog({ isOpen, onClose }: BookingDialogProps) {
             >
               <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
               <p className="text-green-800">
-                Your message has been sent successfully! We&apos;ll contact you soon.
+                Your message has been sent successfully! We&apos;ll contact you
+                soon.
               </p>
             </motion.div>
           )}
