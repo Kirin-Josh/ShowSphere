@@ -10,28 +10,25 @@ import Image from "next/image";
 
 export function GalleryPage() {
   const [selected, setSelected] = useState<number | null>(null);
-    const [filter, setFilter] = useState<string>("all");
-    const videoRef = useRef<HTMLVideoElement | null>(null);
-    const [muted, setMuted] = useState(true);
+  const [filter, setFilter] = useState<string>("all");
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [muted, setMuted] = useState(true);
   const [loaded, setLoaded] = useState(false);
-  const [videoSize] = useState<"small" | "medium" | "large">(
-    "medium"
-  );
+  const [videoSize] = useState<"small" | "medium" | "large">("medium");
 
-    const toggleSound = () => {
-      if (videoRef.current) {
-        videoRef.current.muted = !videoRef.current.muted;
-        setMuted(videoRef.current.muted);
-      }
-    };
+  const toggleSound = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
 
-    useEffect(() => {
-      if (videoRef.current) {
-        const v = videoRef.current;
-        v.oncanplay = () => setLoaded(true);
-      }
-    }, []);
-
+  useEffect(() => {
+    if (videoRef.current) {
+      const v = videoRef.current;
+      v.oncanplay = () => setLoaded(true);
+    }
+  }, []);
 
   const filtered =
     filter === "all"
@@ -263,8 +260,8 @@ export function GalleryPage() {
                   ? videoSize === "small"
                     ? "w-full max-w-2xl h-[60vh]"
                     : videoSize === "medium"
-                    ? "w-full max-w-3xl h-[70vh]"
-                    : "w-full max-w-4xl h-[80vh]"
+                      ? "w-full max-w-3xl h-[70vh]"
+                      : "w-full max-w-4xl h-[80vh]"
                   : "w-full max-w-5xl max-h-[85vh]"
               }`}
             >

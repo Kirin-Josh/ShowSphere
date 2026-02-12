@@ -81,8 +81,8 @@ export default function NavbarComponent({
                     isActive
                       ? "text-primary"
                       : isScrolled
-                      ? "text-black/80 hover:text-primary"
-                      : "text-white hover:text-primary"
+                        ? "text-black/80 hover:text-primary"
+                        : "text-white hover:text-primary"
                   }`}
                 >
                   {item.name}

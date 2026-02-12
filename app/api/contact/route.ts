@@ -3,7 +3,6 @@ import { ContactBookingSchema } from "@/lib/utils";
 import { Resend } from "resend";
 import { z } from "zod";
 
-
 // Rate limiting store (in production, use Redis or similar)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
@@ -15,15 +14,15 @@ function getClientIp(request: NextRequest): string {
   // Try to get real IP from various headers (for proxies/load balancers)
   const forwarded = request.headers.get("x-forwarded-for");
   const realIp = request.headers.get("x-real-ip");
-  
+
   if (forwarded) {
     return forwarded.split(",")[0].trim();
   }
-  
+
   if (realIp) {
     return realIp;
   }
-  
+
   return "unknown";
 }
 
@@ -50,14 +49,17 @@ function checkRateLimit(ip: string): { allowed: boolean; resetTime?: number } {
   return { allowed: true };
 }
 
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, record] of rateLimitStore.entries()) {
-    if (now > record.resetTime) {
-      rateLimitStore.delete(ip);
+setInterval(
+  () => {
+    const now = Date.now();
+    for (const [ip, record] of rateLimitStore.entries()) {
+      if (now > record.resetTime) {
+        rateLimitStore.delete(ip);
+      }
     }
-  }
-}, 10 * 60 * 1000);
+  },
+  10 * 60 * 1000,
+);
 
 export async function POST(request: NextRequest) {
   try {
@@ -65,7 +67,7 @@ export async function POST(request: NextRequest) {
       console.error("RESEND_API_KEY not configured");
       return NextResponse.json(
         { error: "Email service not configured. Please contact support." },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -84,7 +86,7 @@ export async function POST(request: NextRequest) {
         {
           error: `Too many requests. Please try again after ${resetTime}.`,
         },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -98,19 +100,25 @@ export async function POST(request: NextRequest) {
       console.log("Bot detected via honeypot field");
       return NextResponse.json(
         { error: "Invalid submission" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Additional spam checks
-    const spamKeywords = ["viagra", "casino", "crypto", "investment opportunity"];
-    const messageContent = `${validatedData.subject} ${validatedData.message}`.toLowerCase();
-    
-    if (spamKeywords.some(keyword => messageContent.includes(keyword))) {
+    const spamKeywords = [
+      "viagra",
+      "casino",
+      "crypto",
+      "investment opportunity",
+    ];
+    const messageContent =
+      `${validatedData.subject} ${validatedData.message}`.toLowerCase();
+
+    if (spamKeywords.some((keyword) => messageContent.includes(keyword))) {
       console.log("Potential spam detected");
       return NextResponse.json(
         { error: "Message contains inappropriate content" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -119,7 +127,7 @@ export async function POST(request: NextRequest) {
       console.error("RESEND_API_KEY not configured");
       return NextResponse.json(
         { error: "Email service not configured. Please contact support." },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -199,7 +207,7 @@ IP Address: ${clientIp}
       console.error("Resend error:", error);
       return NextResponse.json(
         { error: "Failed to send email. Please try again later." },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -209,7 +217,7 @@ IP Address: ${clientIp}
         message: "Message sent successfully!",
         emailId: data?.id,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Contact form error:", error);
@@ -217,13 +225,13 @@ IP Address: ${clientIp}
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { error: "Invalid form data", details: error.issues },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     return NextResponse.json(
       { error: "An unexpected error occurred. Please try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

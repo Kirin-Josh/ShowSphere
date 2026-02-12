@@ -1,11 +1,10 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 import * as z from "zod";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
-
 
 export const ContactBookingSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -18,4 +17,3 @@ export const ContactBookingSchema = z.object({
 });
 
 export type ContactBookingSchemaType = z.infer<typeof ContactBookingSchema>;
-

@@ -97,59 +97,60 @@ export default function EventsPage({ onNavigate }: EventsPageProps) {
                   No Events Yet
                 </h3>
                 <p className="text-gray-600">
-                  Coming soon! Check back later for upcoming performances and events.
+                  Coming soon! Check back later for upcoming performances and
+                  events.
                 </p>
               </div>
             </motion.div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredEvents.map((event) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.03 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden relative cursor-pointer group"
-            >
-              <div className="relative w-full h-64">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                {event.type === "video" && (
-                  <div className="absolute top-4 left-4 bg-white/20 text-white p-2 rounded-full flex items-center gap-1">
-                    <Play size={16} /> Video
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.03 }}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden relative cursor-pointer group"
+                >
+                  <div className="relative w-full h-64">
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {event.type === "video" && (
+                      <div className="absolute top-4 left-4 bg-white/20 text-white p-2 rounded-full flex items-center gap-1">
+                        <Play size={16} /> Video
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
 
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-2 font-[Poppins]">
-                  {event.title}
-                </h3>
-                <p className="text-gray-500 flex items-center gap-2 mb-1">
-                  <Calendar size={16} /> {event.date}
-                </p>
-                <p className="text-gray-500 flex items-center gap-2">
-                  <MapPin size={16} /> {event.venue}
-                </p>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-semibold text-[#1A1A1A] mb-2 font-[Poppins]">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-500 flex items-center gap-2 mb-1">
+                      <Calendar size={16} /> {event.date}
+                    </p>
+                    <p className="text-gray-500 flex items-center gap-2">
+                      <MapPin size={16} /> {event.venue}
+                    </p>
 
-                {event.link && (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => handleEventClick(event.link!)}
-                    className="mt-4 inline-block px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary transition-all"
-                  >
-                    {event.type === "video" ? "Watch Video" : "Book Now"}
-                  </motion.button>
-                )}
-              </div>
-            </motion.div>
-          ))}
+                    {event.link && (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleEventClick(event.link!)}
+                        className="mt-4 inline-block px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary transition-all"
+                      >
+                        {event.type === "video" ? "Watch Video" : "Book Now"}
+                      </motion.button>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           )}
         </div>
