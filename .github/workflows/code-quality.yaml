@@ -28,7 +28,6 @@ jobs:
 
       # 3️⃣ Frontend Checks
       - name: 🚀 Install frontend dependencies
-        working-directory: booking-frontend
         run: npm ci
 
       - name: 🧹 Lint frontend
